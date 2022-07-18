@@ -24,7 +24,8 @@ public class SecurityConfig {
 		List<String> urlPatterns2 = new ArrayList<String>();
 		urlPatterns2.add("/userInfo");
 		urlPatterns2.add("/adminTask");
-		mapConfig.put(ROLE_ADMIN, urlPatterns2);
+		urlPatterns2.add("/developerTask");
+		mapConfig.put(ROLE_ADMIN, urlPatterns2); 
 	}
 
 	public static Set<String> getAllAppRoles() {

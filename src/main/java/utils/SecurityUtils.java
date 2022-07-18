@@ -3,16 +3,13 @@ import java.util.*;
 import javax.servlet.http.HttpServletRequest;
 import config.SecurityConfig;
 
-
 //Check 1 request co phu hop de dang nhap hay khong
 public class SecurityUtils {
 	
 	// Kiểm tra 'request' này có bắt buộc phải đăng nhập hay không.
 	public static boolean isSecurityPage(HttpServletRequest request) {
 		String urlPattern = UrlPatternUtils.getUrlPattern(request);
-
 		Set<String> roles = SecurityConfig.getAllAppRoles();
-
 		for (String role : roles) {
 			List<String> urlPatterns = SecurityConfig.getUrlPatternsForRole(role);
 			if (urlPatterns != null && urlPatterns.contains(urlPattern)) {
@@ -22,7 +19,7 @@ public class SecurityUtils {
 		return false;
 	} 
 
-	// Kiểm tra 'request' này có vai trò phù hợp hay không?
+	// Kiểm tra 'request' này có ROLE phù hợp hay không?
 	public static boolean hasPermission(HttpServletRequest request) {
 		String urlPattern = UrlPatternUtils.getUrlPattern(request);
 
